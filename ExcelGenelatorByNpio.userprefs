@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{79177991-3077-4A9A-8FBA-831510C17E84}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ExcelGenelatorByNpio/Program.cs">
+    <Files>
+      <File FileName="ExcelGenelatorByNpio/Program.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ExcelGenelatorByNpio PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
