@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Linq;
 using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
+//using NPOI.SS.UserModel;
 
 namespace ExcelGenelator
 {
@@ -14,31 +15,32 @@ namespace ExcelGenelator
 			args = new String[] { "input.csv", "output.xlsx" };
 
 			// アプリケーションのフルパス
-			string appPath = Assembly.GetExecutingAssembly().Location;
+			var appPath = Assembly.GetExecutingAssembly().Location;
 			if (args.Length != 2)
 			{
-				Console.WriteLine("use: mono " + Path.GetFileName(appPath) + " input.csv output.xlsx");
+				Console.WriteLine($"use: mono {Path.GetFileName(appPath)} input.csv output.xlsx");
 				return;
 			}
+			var appDirectory = Path.GetDirectoryName(appPath);
 
 			// テンプレートExcel
-			var templateExcelName = Path.GetDirectoryName(appPath) + "/template.xlsx";
+			var templateExcelName = Path.Combine(appDirectory,"template.xlsx");
 			if (!File.Exists(templateExcelName))
 			{
-				Console.WriteLine("ERROR " + templateExcelName + " not Found.");
+				Console.WriteLine($"ERROR {templateExcelName} not Found.");
 				return;
 			}
 
 			// 入力CSV
-			var inputCsvName = Path.GetDirectoryName(appPath) + "/" + args[0];
+			var inputCsvName = Path.Combine(appDirectory, args[0]);
 			if (!File.Exists(inputCsvName))
 			{
-				Console.WriteLine("ERROR " + inputCsvName + " not Found.");
+				Console.WriteLine($"ERROR {inputCsvName} not Found.");
 				return;
 			}
 
 			// 出力Excel
-			var outputExcelName = Path.GetDirectoryName(appPath) + "/" + args[1];
+			var outputExcelName = Path.Combine(appDirectory, args[1]);
 			using (FileStream file = new FileStream(templateExcelName, FileMode.Open, FileAccess.ReadWrite))
 			{
 				var wb = new XSSFWorkbook(file);
